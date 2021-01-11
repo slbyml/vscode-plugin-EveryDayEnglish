@@ -1,40 +1,75 @@
 {
   "name": "every-day-english",
-	"displayName": "vscode-plugin-EveryDayEnglish",
-	"description": "每日英语",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.52.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:every-day-english.helloWorld"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [{
-            "command": "every-day-english.helloWorld",
-            "title": "Hello World"
-
-		}]
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "yarn run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-        "@types/vscode": "^1.52.0",
-        "@types/glob": "^7.1.3",
-        "@types/mocha": "^8.0.4",
-        "@types/node": "^12.11.7",
-        "eslint": "^7.15.0",
-        "glob": "^7.1.6",
-        "mocha": "^8.1.3",
-        "typescript": "^4.1.2",
-        "vscode-test": "^1.4.1"
+  "displayName": "vscode-plugin-EveryDayEnglish",
+  "description": "每日英语",
+  "license": "MIT",
+  "keywords": [
+    "每日英语",
+    "学习"
+  ],
+  "publisher": "shaolibao",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slbyml/vscode-plugin-EveryDayEnglish.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slbyml/vscode-plugin-EveryDayEnglish/issues"
+  },
+  "homepage": "https://github.com/slbyml/vscode-plugin-EveryDayEnglish/blob/main/README.md",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "every-day-english.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "everyDayEnglish",
+          "title": "每日英语",
+          "icon": "$(remote-explorer-documentation)"
+        }
+      ]
+    },
+    "views": {
+      "everyDayEnglish": [
+        {
+          "id": "everyDayEnglishOne",
+          "type": "webview",
+          "name": "来自金山词霸(最新)"
+        }
+      ]
     }
-
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.52.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "eslint": "^7.15.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.1.3",
+    "typescript": "^4.1.2",
+    "vscode-test": "^1.4.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
 }
