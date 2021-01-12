@@ -5,13 +5,15 @@
   "license": "MIT",
   "keywords": [
     "每日英语",
-    "学习"
+    "学习",
+    "金山词霸"
   ],
   "publisher": "shaolibao",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.52.0"
   },
+  "icon": "images/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/slbyml/vscode-plugin-EveryDayEnglish.git"
@@ -30,8 +32,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "every-day-english.helloWorld",
-        "title": "Hello World"
+        "command": "every-day-english",
+        "title": "每日英语学习"
       }
     ],
     "viewsContainers": {
