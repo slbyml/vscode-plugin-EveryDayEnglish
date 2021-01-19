@@ -41,7 +41,7 @@
         {
           "id": "everyDayEnglish",
           "title": "每日英语",
-          "icon": "$(remote-explorer-documentation)"
+          "icon": "./images/en.svg"
         }
       ]
     },

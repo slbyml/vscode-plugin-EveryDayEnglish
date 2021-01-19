@@ -23,7 +23,7 @@ class ProviderTemplate {
   }
   fetch() {
     try {
-      return fetch('http://sentence.iciba.com/api/sentence/list?app_type=0&brand=apple&ck=&client=3&limit=1')
+      return fetch('https://sentence.iciba.com/api/sentence/list?app_type=0&brand=apple&ck=&client=3&limit=1')
       .then(res => res.json())
       .then(json => {
         console.log("数据请求成功!");
