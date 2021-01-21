@@ -16,7 +16,7 @@ module.exports = function(webviewView, data) {
       <head>
         <meta charset="UTF-8">
         <style>
-        *{padding:0;margin:0}h2{border-bottom:1px solid #393939;padding:10px 0 5px;margin-bottom:5px}h3{color:#1e90ff;line-height:24px}h4{color:#1e90ff;line-height:20px}.border{border-top:1px dashed #393939;height:0;margin:10px 0 5px}ul{padding:10px}li{padding-bottom:8px}.box{padding-left:10px}.highlight{color:#1d6fd8}
+        *{padding:0;margin:0}h2{border-bottom:1px solid #393939;padding:10px 0 5px;margin-bottom:5px}h3{color:#1e90ff;line-height:24px}h4{color:#1e90ff;line-height:20px}.border{border-top:1px dashed #393939;height:0;margin:10px 0 5px}ul{padding:10px}li{padding-bottom:8px}.box{padding-left:10px}.highlight{color:#1e90ff}
         .ys{color:#336699}
         </style>
       </head>

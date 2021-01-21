@@ -30,31 +30,25 @@ class ProviderTemplate {
   constructor(context) {
     this.data = null
     this.webview = null
-    this.storageUri = ""
-    this.cachePath = null
+    this.cachePath = ""
     try {
-      console.log(context.storageUri);
-      if (context.storageUri && context.storageUri.path) {
-        // 优先读取缓存的数据
-        this.storageUri  = context.storageUri.path
-        if (!fs.existsSync(this.storageUri)) {
-          fs.mkdirSync(this.storageUri)
-        }
-        const pathCache = this.cachePath =  path.join(this.storageUri, 'cache.json')
-        if (!fs.existsSync(pathCache)) {
-          // 如果没有cache.json文件,则说明没有缓存
-          this.fetchData()
-          return this
-        }
-        const data = JSON.parse(fs.readFileSync(pathCache, 'utf8'))
-        if (getDate() === data.dailysentence.title) {
-          // 使用缓存数据
-          this.data  = data        
-        } else {
-          // 缓存已过期
-          this.fetchData()
-        }
+      // 优先读取缓存的数据
+      this.cachePath  = context.globalStoragePath
+      if (!fs.existsSync(this.cachePath)) {
+        fs.mkdirSync(this.cachePath)
+      }
+      const pathCache = this.cachePath =  path.join(this.cachePath, 'cache.json')
+      if (!fs.existsSync(pathCache)) {
+        // 如果没有cache.json文件,则说明没有缓存
+        this.fetchData()
+        return this
+      }
+      const data = JSON.parse(fs.readFileSync(pathCache, 'utf8'))
+      if (getDate() === data.dailysentence.title) {
+        // 使用缓存数据
+        this.data  = data        
       } else {
+        // 缓存已过期
         this.fetchData()
       }
       
@@ -85,11 +79,9 @@ class ProviderTemplate {
         const data = json.data || {}
         if (json.code === 0 && data.sentenceViewList && data.sentenceViewList.length) {
           vscode.window.showInformationMessage(`最新每日英语(${data.sentenceViewList[0].dailysentence.title})已经更新!`)
-
-          if (!fs.existsSync(this.storageUri)) {
-            fs.mkdirSync(this.storageUri)
-          }
-          fs.writeFile(this.cachePath, JSON.stringify(data.sentenceViewList[0]), err => err)
+          fs.writeFile(this.cachePath, JSON.stringify(data.sentenceViewList[0]), err => {
+            console.log(err);
+          })
           return data.sentenceViewList[0]
         } else {
           vscode.window.showInformationMessage(json.msg);
