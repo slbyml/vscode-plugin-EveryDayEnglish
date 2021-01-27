@@ -1,7 +1,7 @@
 {
   "name": "every-day-english",
-  "displayName": "vscode-plugin-EveryDayEnglish",
-  "description": "每日英语",
+  "displayName": "vscode-plugin-dailyEnglish",
+  "description": "每日英语,Daily English",
   "license": "MIT",
   "keywords": [
     "每日英语",
